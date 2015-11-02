@@ -13,3 +13,5 @@ This is a JSP-like text template engine for java. Unlike the same work on [Veloc
 You can get "Hello world!" from the `writer.toString()`
 
 You can also load the template from file or output the result to another file by using the `java.io.Reader` and `java.io.Writer`
+
+More samples please check [Unit Test](https://github.com/chen3961/JTTemplate/blob/master/src/test/java/org/zsource/jtt/JTTEngineTest.java)
