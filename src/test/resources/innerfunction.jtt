@@ -1,0 +1,11 @@
+This is test for define inner function.
+<%
+class MyFun {
+    public String getFunString(String value) {
+        return value + "fun";
+    }
+}
+%>
+Output a function value:
+<%=new MyFun().getFunString(input)%>
+End;

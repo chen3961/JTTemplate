@@ -104,7 +104,7 @@ public class JTTParser {
         intval = reader.read();
       }
       if (currentContent.length() > 0) {
-        putPreviousSlice(currentContent, slices, Slice.Type.EXPRESSION, 0);
+        putPreviousSlice(currentContent, slices, Slice.Type.TEXT, 0);
       }
     }
     catch (IOException e) {

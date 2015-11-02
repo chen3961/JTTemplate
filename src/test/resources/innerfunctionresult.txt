@@ -1,0 +1,4 @@
+This is test for define inner function.
+Output a function value:
+testfun
+End;

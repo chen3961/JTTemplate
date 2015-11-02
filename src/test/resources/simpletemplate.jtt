@@ -1,0 +1,7 @@
+This is a simple JTT test template.
+Output a map:
+<% for (String key : values.keySet()) {%>
+key:<%=key%>
+value:<%=values.get(key)%>
+<%}%>
+End;

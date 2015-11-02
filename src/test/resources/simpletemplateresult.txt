@@ -1,0 +1,9 @@
+This is a simple JTT test template.
+Output a map:
+key:k1
+value:v1
+key:k2
+value:v2
+key:k3
+value:v3
+End;

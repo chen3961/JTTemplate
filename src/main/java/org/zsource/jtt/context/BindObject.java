@@ -7,7 +7,7 @@ public class BindObject {
   private String name;
   private Object value;
 
-  private String className;
+  private String[] className;
   private String classSimpleName;
   private Class objClass;
   private Boolean isArray = false;
@@ -18,15 +18,28 @@ public class BindObject {
     if (value != null) {
       isArray = value.getClass().isArray();
       objClass = value.getClass();
-      className = value.getClass().getCanonicalName();
+      if (isArray) {
+        className = new String[]{value.getClass().getCanonicalName().substring(0,
+            value.getClass().getCanonicalName().length() - 2)};
+      } else {
+        className = new String[]{value.getClass().getCanonicalName()};
+      }
+
       classSimpleName = value.getClass().getSimpleName();
     }
     else {
       isArray = false;
-      className = "java.lang.Object";
+      className = new String[]{"java.lang.Object"};
       classSimpleName = "Object";
       objClass = Object.class;
     }
+  }
+
+  public BindObject(String name, Object value, GenericTypeReslover genericTypeReslover) {
+    this(name, value);
+    className = genericTypeReslover.getTypeClassSet();
+    classSimpleName = genericTypeReslover.getTargetClassDeclareName();
+    objClass = genericTypeReslover.getTargetClass();
   }
   public String getName() {
     return name;
@@ -37,13 +50,8 @@ public class BindObject {
   }
 
   //Use for import in finial code
-  public String getImportName() {
-    String itemClassname = className;
-    if (isArray) {
-      itemClassname = className.substring(0, className.length()-2);
-    }
-
-    return itemClassname;
+  public String[] getImportNames() {
+    return className;
   }
 
   public String getDeclareName() {
